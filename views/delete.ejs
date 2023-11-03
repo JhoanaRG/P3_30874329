@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="/css/update.css">
+</head>
+<body>
+
+<section>
+  <div class="form-box">
+    <div class="form-value">
+      <form id="login_form" class="login_form" action="/delete/<%=modelo.producto_id%>" method="post">
+        <h2>Eliminar Registro</h2>
+        <div class='flex-principal'>
+          <%- include('editorcentral') -%>
+          <div id="cancelar">
+            <input type="submit" value="Eliminar Producto" id="eliminarRegistro">
+             <a href="/productos" class="boton">Cancelar</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  </section>  
+</body>
+<%- include('footer') -%>
+</html>
+
+
+
+

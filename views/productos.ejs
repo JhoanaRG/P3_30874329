@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Productos</title>
+  <link rel="stylesheet" type="text/css" href="/css/producto.css">
+  
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div id='h1'>
+       <h1 class="titulo">Productos <%=modelo.length%></h1> 
+     </div>
+     <img src="/img/ci.png" class="game-board-icon" alt="Icono de juegos">
+     <ul class="item-box">
+      <li class="item"><a href="/categorias">Categorias</a></li>
+      <li class="item item-d"><a href="/login">Volver</a></li>
+    </ul>
+  </nav>
+  </header>
+
+  <div class="table">
+    <table>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Codigo</th>
+            <th>Precio</th>
+            <th>Descripcion</th>
+            <th>Calidad</th>
+            <th>Cantidad</th>
+            <th><a href="/add"><img src="/img/add.png" id='add'></a></th>
+          </tr>
+          <%for(const producto of modelo){%>
+            <tr>
+              <td><%=producto.producto_id%></td>
+              <td><%=producto.nombre%></td>
+              <td><%=producto.codigo%></td>
+              <td><%=producto.precio%></td>
+              <td><%=producto.descripcion%></td>
+              <td><%=producto.calidad%></td>
+              <td><%=producto.cantidad%></td>
+              <td class="icon">
+              <a href="/update/<%= producto.producto_id%>"><img src="/img/update.png" width="30"></a>
+              <a href="/delete/<%= producto.producto_id%>"><img src="/img/delete.png" width="30" id="delete"></a>
+              <a href="/addImagen">
+                <img src="/img/dropdown-icon.svg" alt="Subir imagen" title="Subir una imagen">
+              </a>
+             </td>
+            </tr>
+           <%}%>
+        </table>
+       
+  </div>
+</body>
+</html>
