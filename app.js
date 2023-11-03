@@ -1,41 +1,113 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+//Librerias y dependencias
+require('dotenv').config();
+const http = require('http');
+const express = require('express');
+const app = express();
+const path = require('path');
+const baseDatos = require('./models/base.js');
+const {contrasena,user} = process.env;
+app.use(express.static(__dirname+'/static'));
+//-----------------------------------------------------------------
+//Configuración del Servidor
+app.set('view engine','ejs');//definimos el motor de plantilla con archivos ejs
+app.set('views',path.join(__dirname,"./views"));//definimos la ruta del motor de plantilla
+app.use(express.urlencoded({extended:false}));//permite recuperar los valores publicados en un request
+port = app.listen(5000);
+console.log('Servidor corriendo exitosamente en el puerto 5000');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
-var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+//-----------------------------------------------------------
+//enruptamiento
+app.get('/',(req,res)=>{
+  res.render('index.ejs')
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+app.get('/login',(req,res)=>{
+res.render('iniciarSesion.ejs');
 });
 
-module.exports = app;
+
+app.post('/login',(req,res)=>{
+
+ const {admin,password} = req.body;
+
+   if(admin === user && password === contrasena){
+    res.redirect('/productos');
+   }else{
+    res.render('password.ejs');
+   }
+
+});
+  
+
+app.get('/add',(req,res)=>{
+res.render('add.ejs');
+});
+
+//---------------------------------------------------------
+app.get('/addImagen',(req,res)=>{
+res.render('addImagen.ejs');
+});
+
+
+app.post('/addImagen',(req,res)=>{
+baseDatos.aggIMG(req,res);
+});
+
+
+app.post('/addPost',(req,res)=>{   
+baseDatos.aggDato(req,res);
+});
+
+
+app.get('/productos',(req,res)=>{
+  baseDatos.mostrarProductos(req,res);
+});
+//-------------------------------------------------------
+// GET /editar/:id
+app.get('/update/:id',(req, res) => {
+baseDatos.mostrarUpdate(req,res);
+
+});
+//-------------------------------------------------------
+// POST /editar/:id
+app.post('/update/:id', (req, res) => {
+ baseDatos.update(req,res);
+});
+//-------------------------------------------------------
+// GET /eliminar/:id
+app.get('/delete/:id', (req, res) => {
+ baseDatos.mostrarDelete(req,res);
+});
+//-------------------------------------------------------
+// POST /eliminar/:id
+app.post('/delete/:id', (req, res) => {
+ baseDatos.deletee(req,res);
+});
+//------------------------------------------------------
+app.get('/categorias', (req, res) => {
+ baseDatos.getCategorias(req,res);
+});
+//-------------------------------------------------------
+app.get('/addCategorias', (req, res) => {
+ res.render('addcategoria.ejs');
+});
+//-------------------------------------------------------
+app.post('/addcategorias', (req, res) => {
+ baseDatos.postCategorias(req,res);
+});
+//-------------------------------------------------------
+app.get('/updateCategoria/:id',(req,res)=>{
+ baseDatos.mostrarUpdateC(req,res);
+});
+//-------------------------------------------------------
+app.post('/updateCategoria/:id',(req,res)=>{
+baseDatos.updateCateg(req,res);
+});
+//-------------------------------------------------------
+//Metodo para manejar rutas no encontradas
+app.get('/*',(req,res)=>{
+res.render('notfound.ejs')
+});
+//-------------------------------------------------------
