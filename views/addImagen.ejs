@@ -11,12 +11,15 @@
   <section>
 		<div class="form-box">
 			<div class="form-value">
-				<form id="login_form" class="login_form" action="/addPost" method="post">
+				<form id="login_form" class="login_form" action="/addImagen/<%=modelo.producto_id%>" method="post" enctype="multipart/form-data">
 					<h2>Agregar Imagen</h2>
                     <input type="file" name="img" id="img" placeholder="Imagen">
                     <div class="inputbox">
-                      <input type="text" name="destacado" autocomplete="true" id="destacado">
-                      <label for="descripcion">Destacado</label>
+                      <label for="destacado">Destacado</label>
+	   <select id='destacado' name="destacado">
+		<option value='1'>principal</option>
+		<option value='0'>no main</option>
+	   </select>
 					</div>
 					<div class="error hidden">
 						<p>Error al iniciar sesion</p>
