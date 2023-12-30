@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+	<style type="text/css">
+		/* Global */
+@font-face{
+	font-family:'Poppins';
+	src:url('/fuentes/Poppins.ttf');
+}
+
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "Poppins", sans-serif;
+}
+
+/* General */
+
+section{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	width: 100%;
+	background: url('/img/login.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+h2{
+	font-size: 2em;
+	color: #fff;
+	text-align: center;
+}
+
+input[type="submit"]{
+	width:100%;
+	height: 40px;
+	border-radius: 40px;
+	background-color: #E73B4C;
+	color: #1C2C49;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 1em;
+	font-weight: 600;
+	margin:2rem auto;
+}
+
+.form-box{
+	position: relative;
+	width: 40%;
+	height:auto;
+	background: #1C2C49;
+	border-radius: 20px;
+	backdrop-filter: blur(15px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin:4rem;
+}
+
+.inputbox{
+	position: relative;
+	margin: 30px 0;
+	width: 310px;
+	border-bottom: 2px solid #fff;
+}
+.inputbox label{
+	position: absolute;
+
+	left: 5px;
+	transform: translateY(-50%);
+	color: #fff;
+	font: size: 1em;
+	pointer.events: none;
+	transition: .5s;
+}
+
+input:focus ~ label,
+input:valid ~ label{
+	top: -8px;
+
+}
+
+.inputbox input{
+	width: 100%;
+	height: 50px;
+	background: transparent;
+	border: none;
+	outline: none;
+	font-size: 1em;
+	padding: 0 35px 0 5px;
+	color: #fff;
+}
+.inputbox img{
+	position: absolute;
+	right: 8px;
+	color: #fff;
+	font-size: 1.2rem;
+	top: 20px;
+}
+
+.error{
+	color: #ff0000;
+	font-weight: bolder;
+	text-transform: uppercase;
+	margin: -15px 0px 20px;
+	text-align: center;
+}
+
+.hidden{
+	display: none;
+}
+
+#etiquetaIniciarSesion{
+		display:flex;
+		justify-content: center;
+		align-items: center;
+		color:white;
+		margin-top:1rem;
+	}
+	
+	 a{
+        	color:rgb(252, 236, 183);
+        	text-decoration: none;
+        	font-size:1.4rem;
+        }                                                 
+      form{
+      	width:80%;
+      	padding:2rem;
+      }
+      #etiquetaIniciarSesion a:hover{
+       text-decoration: revert-layer;
+      }
+	</style>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>	
+</head>
+<body>
+	<section>
+		<div class="form-box">
+			<div class="form-value">
+				<form id="login_form" class="login_form" action="/registroUsuariosPost" method="post">
+					<h2>Registro</h2>
+<!--------------------------------------------------------->
+					<div class="inputbox">
+					 <label>Nombre</label>
+		       <input type="text" name="nombre" required>
+					</div>
+<!--------------------------------------------------------->
+					<div class="inputbox">
+					<label>Apellido</label>
+          <input type="text" name="apellido" required>
+					</div>
+<!--------------------------------------------------------->
+					<div class="inputbox">
+					 <label>Cedula</label>
+           <input type="number" name="cedula" required>
+					</div>
+<!--------------------------------------------------------->
+					<div class="inputbox">
+					<label>Correo</label>
+          <input type="email" name="email" required value=' '>
+					</div>
+<!--------------------------------------------------------->
+					<div class="inputbox">
+				  <label>Contraseña</label>
+          <input type="text" name="contrasena" id='lastChild' required value=' '>
+					</div>
+<!--------------------------------------------------------->
+
+
+<div class="g-recaptcha" data-sitekey="6LcCaz8pAAAAAFIACou2yj64ZXxTKEFRKuT7mHzZ
+"></div>
+										
+<!--------------------------------------------------------->
+<div style='width:100%;display:flex;justify-content:center;align-items: center;'>
+	<input type="submit" name="enviar" value="Registrarse" id="iniciar">
+</div>
+					
+<!--------------------------------------------------------->      
+		 <div id='etiquetaIniciarSesion'>
+         <a href="/loginUsers">Iniciar Sesion</a>
+         </div>	
+
+				</form>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
+
+
+

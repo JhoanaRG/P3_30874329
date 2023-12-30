@@ -5,12 +5,12 @@
 }
 
 body {
-  background-color: rgb(185, 74, 240);
+  background-color: rgb(28, 44, 73);
 }
 
 main {
   width: 100%;
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;

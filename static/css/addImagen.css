@@ -47,8 +47,8 @@ input[type="submit"]{
 	padding:.8rem;
 	line-height:1px;
 }
-#volverInput{
-display: block;
+.volverr{
+	display: block;
 	width: 100%;
 	height: 40px;
 	border-radius: 40px;
@@ -59,9 +59,9 @@ display: block;
 	cursor: pointer;
 	font-size: 1em;
 	font-weight: 600;
-	padding:.8rem;
-	line-height:1px;
 	margin-left: 1rem;
+	padding:1rem;
+	line-height:3px;
 }
 .boton{
     display: block;
@@ -173,7 +173,7 @@ input:valid ~ label{
 
 .login_form{
   margin:50px auto;
-	width:50%;
+	width:40%;
 	height:auto;
 	background: #1C2C49;
 	border: 2px solid rgba(255, 255, 255, 0.5);
@@ -183,7 +183,6 @@ input:valid ~ label{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	border:1px solid gold;
 }
 
 footer{
@@ -204,8 +203,8 @@ input[type="file"]{
   
   .form-box{
 	width: 600px;
-	height: auto;
-	border:1px solid red;
+	height: 650px;
+	border:1px solid;
   }
   
   .inputbox{

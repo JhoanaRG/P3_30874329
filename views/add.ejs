@@ -11,8 +11,8 @@
 </head>
 <body>
   <section>
-		<div class="form-box">
-			<div class="form-value">
+		
+			
 				<form id="login_form" class="login_form" action="/addPost" method="post">
 					<h2>Agregar Producto</h2>
 					<div class="inputbox">
@@ -39,15 +39,29 @@
 						<input type="text" name="cantidad" required autocomplete="true">
 						<label for="cantidad">Cantidad</label>
 					</div>
-					<div class="error hidden">
-						<p>Error al iniciar sesion</p>
+
+					<div>
+						<label for='categoria'>Categoria</label>
+                        <select id='categoria' name='categoria' required>
+            <option value="1">Categoria 1</option>
+            <option value="2">Categoria 2</option>
+            </select>
 					</div>
-					<input type="submit" value="Agregar" id="update">
-                    <a href="/productos" class="boton">Volver</a>
+
+
+					<div style="display:flex;justify-content:center;align-items: center;margin-top:2rem;margin-bottom:2rem;">
+						<input type="submit" value="Agregar" id="update">
+						<input type="button" onclick="redireccionar()" id='volverInput' value="Volver">
+					</div>
+					
 				</form>
-			</div>
-		</div>
+		
 	</section>
 <%- include('footer') -%>
+<script type="text/javascript">
+	function redireccionar(){
+		window.location.href='/productos';
+	}
+</script>
 </body>
 </html>

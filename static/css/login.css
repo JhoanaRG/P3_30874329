@@ -76,7 +76,10 @@ input[type="submit"]{
 
 input:focus ~ label,
 input:valid ~ label{
-	top: -5px;
+	top: -8px;
+	color:gold;
+	font-weight: bold;
+
 }
 
 .inputbox input{
