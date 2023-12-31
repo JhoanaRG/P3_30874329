@@ -5,7 +5,7 @@ const path = require('path');
 require('dotenv').config();
 var handlebars = require('express-handlebars')
 const Recaptcha = require('express-recaptcha').RecaptchaV2;
-const recaptcha = new Recaptcha('6LcCaz8pAAAAAFIACou2yj64ZXxTKEFRKuT7mHzZ', '6LcCaz8pAAAAAH_qt_SnKaXzMvBoTnUEoG_MjiWn');
+const recaptcha = new Recaptcha('6Lc2wEEpAAAAAFxP5oxRNnGJtaOC35q42bfDoR5s', '6Lc2wEEpAAAAAB1qtOLnKq---IDK26okTJiN7VfR');
 const multer = require('multer');
 const http = require('http');
 const { obtenerDireccionIP} = require('./utils/direccionIP.js');
