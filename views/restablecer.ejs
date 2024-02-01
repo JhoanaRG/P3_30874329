@@ -58,8 +58,9 @@
 			flex-direction: column;
 			justify-content: center;
 			align-items:center;
-			background:rgba(0,0,0,.6);
+			background:rgb(28, 44, 73);
 			width:30%;
+                        height:50vh;
 			margin:3rem auto;
 		}
 		label{
@@ -83,10 +84,9 @@
          	display:flex;
          	justify-content: center;
          	margin-top:2rem;
-         	background: rgba(0,0,0,.6);
          }
 	</style>
-        <link rel="stylesheet" type="text/css" href="/css/login.css">
+        
 </head>
 <body>
 
@@ -95,20 +95,19 @@
 <div class='form-box'>
 <form action='/restablecer-contrasena' method="POST" id='myForm'>
 
-        <div class='inputbox'>
+        
 	<label>Confirma tu nombre de Usuario</label>
 	<input type="text" name="userName">
-        </div>
 
-        <div class='inputbox'>
+
+        
 	<label>Contraseña Nueva</label>
 	<input type="password" name="password" id='password-1'>
-        </div>
+        
 
-        <div class='inputbox'>
 	<label>Confirmar Contraseña</label>
 	<input type="password" name="passwordC" id='password-2'>
-        </div>
+       
 
         <div class="contenedorBotonera">
 	  <input type="submit" value="enviar">
