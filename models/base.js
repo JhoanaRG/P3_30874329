@@ -769,7 +769,6 @@ const sql3 = `SELECT * FROM puntuaciones WHERE producto_id = ?`;
 
 function enviarEmailRecuperacion(req,res){
   const email = req.body.email;
-  const UserName = req.body.userName;
 // Generar un token único
   const token = crypto.randomBytes(20).toString('hex');
 
@@ -777,7 +776,7 @@ function enviarEmailRecuperacion(req,res){
  res.cookie('securityToken',token, { httpOnly: true, secure: true });
 
   // Crear la URL de recuperación de contraseña
-  const recoveryURL = `https://ventasandmas.onrender.com/restablecerC?token=${token}?userName=${UserName}`;
+  const recoveryURL = `https://ventasandmas.onrender.com/restablecerC?token=${token}`;
 
   // Enviar el correo electrónico de recuperación de contraseña
   const mailOptions = {
