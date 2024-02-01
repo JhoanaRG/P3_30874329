@@ -318,22 +318,17 @@ app.post('/recuperarPassword',(req,res)=>{
 baseDatos.enviarEmailRecuperacion(req,res);
 });
 //------------------------------------------------------
-app.get('/restablecer-contrasena',(req,res)=>{  
+app.get('/restablecerC',(req,res)=>{  
 
 const token = req.query.token;
-const UserName = req.query.userName;
-console.log(userName);
 
-const tokenCookies = req.cookies.securityToken;
-
-console.log(tokenCookies,'tokenCookies');
 console.log(token,'token');
 
 
-res.render('restablecer.ejs',{user:UserName,  og: {
-      title: 'Juegos de mesa',
-      description: 'Venta de juegos de mesa',
-      image: 'https://images.pexels.com/photos/1796794/pexels-photo-1796794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+res.render('restablecer.ejs',{og:{
+      title: 'LimpiezaAbsoluta',
+      description: 'Venta de Productos de limpieza',
+      image: 'https://images.pexels.com/photos/10557898/pexels-photo-10557898.jpeg?auto=compress&cs=tinysrgb&w=400',
       // Otros metadatos OGP que desees especificar
       }});
 
